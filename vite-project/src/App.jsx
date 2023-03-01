@@ -10,7 +10,7 @@ function App() {
   const url = "https://localhost:7151/api/Usuarios";
   const [estado, setEstado] = useState([]);
   const [modalEditar, setModalEditar] = useState(false);
-  // const [modalInsertar, setModalInsertar] = useState([]);
+  const [modalInsertar, setModalInsertar] = useState([]);
   // const [modalEliminar, setModalEliminar] = useState([]);
   const [gestrorselecionado, setGestrorselecionado] = useState('');
 
@@ -32,7 +32,7 @@ function App() {
       ...gestrorselecionado,
       [name]:value
     });
-   
+   console.log(gestrorselecionado);
   }
 
   useEffect(() => {
@@ -88,26 +88,26 @@ function App() {
       <br /><Button color="danger" onClick={toggle}>
        Agregar
       </Button>
-      <Modal isOpen={modal} toggle={toggle} {...modalEditar}>
+      <Modal isOpen={modal} toggle={toggle} {...modalInsertar}>
         <ModalHeader toggle={toggle}>Formulario Usuario</ModalHeader>
         <ModalBody>
           <div className="form-group">
-            <label>ID</label>
+            {/* <label>ID</label>
             <br />
-            <input type="text" className="form-control" name="id" onChange={handleChange} value={gestrorselecionado && gestrorselecionado.usu_id} />
-            <label>NOMBRE</label>
+            <input type="text" className="form-control" name="id" onChange={handleChange} value={gestrorselecionado && gestrorselecionado.usu_id} /> */}
+            <label>Nombre</label>
             <br />
             <input type="text" className="form-control" name="nombre" onChange={handleChange} value={gestrorselecionado && gestrorselecionado.usu_nombre} />
-            <label>APELLIDO</label>
+            <label>Apellido</label>
             <br />
             <input type="text" className="form-control" name="apellido" onChange={handleChange} value={gestrorselecionado && gestrorselecionado.usu_apellido} />
-            <label>DOCUMENTO</label>
+            <label>Documento</label>
             <br />
             <input type="text" className="form-control" name="documento" onChange={handleChange} value={gestrorselecionado && gestrorselecionado.usu_tipo_documento} />
-            <label>TELEFONO</label>
+            <label>Telefono</label>
             <br />
             <input type="text" className="form-control" name="telefono" onChange={handleChange} value={gestrorselecionado && gestrorselecionado.usu_telefono} />
-            <label>CORREO</label>
+            <label>Correo</label>
             <br />
             <input type="text" className="form-control" name="correo" onChange={handleChange} value={gestrorselecionado && gestrorselecionado.usu_correo} />
              
@@ -115,7 +115,7 @@ function App() {
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={toggle}>
-            Do Something
+            Registrar
           </Button>{' '}
           <Button color="secondary" onClick={toggle}>
             Cancel
